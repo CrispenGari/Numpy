@@ -284,6 +284,16 @@ identity = np.identity(4, dtype='int8')
 identity
 ```
 
+### Generating array of integers using `np.arange(n).reshape(shape)`
+
+> Note that the product of the shape (a, b) must give us n which means `n = a * b` otherwise an error will occur the following is an example of how we can generate array of integers using the two methods `arange` and `reshape`
+
+```
+## Generating element's using the np.arange(15).reshape(3, 5) methods
+arr = np.arange(15).reshape(3,5)
+arr
+```
+
 ## Repeating an array
 
 ### Repeating an array vertically
@@ -301,6 +311,251 @@ arr3 = np.repeat(arr1, 3, axis=1) # Repeats horizontally
 arr3
 ```
 
+### Universal Functions
+
+- arange(n)
+
+```
+# the arange(n) function that generates 1-d array of integers from 0 to n-1
+a = np.arange(10)
+a # array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+```
+
+> There are a lot of functions that are used in numpy arrays some of them are
+
+- all
+  - Test whether all array elements along a given axis evaluate to True.
+  ```
+  print(np.all(np.array([True, False, True, True, False]))) # False
+  print(np.all(np.array([True, True]))) # True
+  print(np.all(np.array([1,2, 3,-10]))) # True
+  ```
+- any
+  - Test whether any array element along a given axis evaluates to True.
+  ```
+  print(np.any(np.array([True, False, True, True, False]))) # True
+  print(np.any(np.array([not True, not True]))) # False
+  print(np.any(np.array([1,2, 3,-10]))) # True
+  ```
+- apply_along_axis
+  - Read more [here](https://numpy.org/doc/1.14/reference/generated/numpy.apply_along_axis.html#numpy.apply_along_axis)
+- argmax
+
+  - Returns the indices of the maximum values along an axis.
+
+  ```
+  print(np.argmax(np.array([1,10,-19,9, 0,56,108,-76]))) # 6
+  ```
+
+- argmin
+
+  - Returns the indices of the minimum values along an axis.
+
+  ```
+  print(np.argmax(np.array([1,10,-19,9, 0,56,108,-76]))) # 7
+  ```
+
+- argsort
+  - Returns the indices that would sort an array.
+  ```
+  print(np.argmax(np.array([1,10,-19,9, 0,56,108,-76]))) # 7
+  ```
+- average
+  - Compute the weighted average along the specified axis.
+  ```
+  print(np.average(np.array([1,10,-19,9, 0,56,108,-76]))) # 11.125
+  ```
+- bincount
+  - Count number of occurrences of each value in array of non-negative ints.
+
+```
+# bincount
+print(np.bincount(np.array([1,1,2,6,7,0]))) # [1 2 1 0 0 0 1 1]
+```
+
+- ceil
+  - Return the ceiling of the input, element-wise from floats values
+
+```
+# ceil function
+
+print(np.ceil(np.array([1.2, 2.8, 6.9, -6,10,9]))) # [ 2.  3.  7. -6. 10.  9.]
+```
+
+- clip
+  - Clip (limit) the values in an array.
+
+```
+# clip function
+print(np.clip(np.arange(10), 2, 8)) # [2 2 2 3 4 5 6 7 8 8]
+```
+
+- conj
+  - Return the complex conjugate, element-wise.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.conj.html#numpy.conj)
+- corrcoef
+  - Return Pearson product-moment correlation coefficients.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.corrcoef.html#numpy.corrcoef)
+- cov
+  - Estimate a covariance matrix, given data and weights.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.cov.html#numpy.cov)
+- cross
+  - Return the cross product of two (arrays of) vectors.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.cross.html#numpy.cross)
+- cumprod
+  - Return the cumulative product of elements along a given axis.
+
+```
+print(np.cumprod(np.array([2,3,5]))) # [ 2  6 30]
+```
+
+- cumsum
+  - Return the cumulative sum of elements along a given axis.
+
+```
+print(np.cumsum(np.array([2,3,5]))) # [ 2  5 10]
+```
+
+- diff
+
+  - Calculate the n-th discrete difference along the given axis.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.diff.html#numpy.diff)
+
+- dot
+  - Dot product of two arrays. Specifically
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.dot.html#numpy.dot)
+- floor
+
+```
+# floor function
+print(np.floor(np.array([1.2, 2.8, 6.9, -6,10,9]))) # [ 1.  2.  6. -6. 10.  9.]
+```
+
+- inner
+
+  - Inner product of two arrays.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.inner.html#numpy.inner)
+
+- lexsort
+  - Perform an indirect sort using a sequence of keys.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.lexsort.html#numpy.lexsort)
+- max
+  - Return the largest item in an iterable or the largest of two or more arguments.
+
+```
+# max function
+print(np.max(np.random.randint(1, 100, 5))) # a random numbaer
+```
+
+- maximum
+  - Element-wise maximum of array elements.
+  ```
+  print (np.maximum([2, 3, 4], [1, 5, 2])) # [2 5 4]
+  ```
+- mean
+  - Compute the arithmetic mean along the specified axis.
+
+```
+# mean
+print(np.mean(np.ones((5,)))) # 1.0
+```
+
+- median
+  - Compute the median along the specified axis.
+
+```
+print(np.median(np.array([2, 5, -6, 8, 9]))) # 5
+```
+
+- min
+  - Return the smallest item in an iterable or the largest of two or more arguments.
+
+```
+# max function
+print(np.min(np.random.randint(1, 100, 5))) # a random numbaer
+```
+
+- ## minimum
+
+```
+print (np.minimum([2, 3, 4], [1, 5, 2])) # [1 3 2]
+```
+
+- nonzero
+  - Return the indices of the elements that are non-zero.
+
+```
+# nonzero function
+print(np.nonzero(np.round(np.array(np.random.rand(10))))) # (array([2, 3, 4, 6, 7, 8], dtype=int64),)
+```
+
+- outer
+  - Compute the outer product of two vectors.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.outer.html#numpy.outer)
+- prod
+  - Return the product of array elements over a given axis.
+
+```
+# prod function
+print(np.prod(np.array([2,2,2,3]))) # 24
+```
+
+- re
+  - This module provides regular expression matching operations similar to those found in Perl.
+    [Example](https://docs.python.org/dev/library/re.html#module-re)
+- round
+  - Return number rounded to ndigits precision after the decimal point. If ndigits is omitted or is None, it returns the nearest integer to its input.
+
+```
+np.round(np.array(np.random.rand(10))) # a random array
+```
+
+- sort
+  - Return a sorted copy of an array.
+
+```
+np.sort(np.array([1, 2,10, 0,7,-6])) # array([-6,  0,  1,  2,  7, 10])
+```
+
+- std
+  - Compute the standard deviation along the specified axis.
+
+```
+np.std(np.array([5, 9, 9, 0])) # 3.6996621467371855
+```
+
+- sum
+  - Sum of array elements over a given axis
+
+```
+np.sum(np.ones(5)) # 5
+```
+
+- trace
+  - Return the sum along diagonals of the array.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.trace.html#numpy.trace)
+- transpose
+  - Permute the dimensions of an array.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.transpose.html#numpy.transpose)
+- var
+  - Compute the variance along the specified axis.
+
+```
+# var function the varience of the array
+np.var(np.array([5, 9, 9, 0])) # 13.6875
+```
+
+- vdot
+  - Return the dot product of two vectors.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.vdot.html#numpy.vdot)
+- vectorize
+  - Generalized function class.
+    [Example](https://numpy.org/doc/1.14/reference/generated/numpy.vectorize.html#numpy.vectorize)
+- where
+  Return elements, either from x or y, depending on condition.
+  [Example](https://numpy.org/doc/1.14/reference/generated/numpy.where.html#numpy.where)
+
 ## Copying numpy arrays
 
 ### Direct copying
@@ -308,14 +563,19 @@ arr3
 > This method just assigns the first array to the second array. So when the value of the first second array changes then the value of the first array also changes.
 
 ```
+
 ## Copying arrays
+
 array1 = np.array([1,2,3,4,5])
 array2 = array1
 print(array2) # [1 2 3 4 5]
 array2[-1]= 500
 print(array2) # [1 2 3 4 500]
+
 # Array1 also changes
+
 print(array1) # [1 2 3 4 500]
+
 ```
 
 ### using the copy() method
@@ -323,13 +583,17 @@ print(array1) # [1 2 3 4 500]
 > This method copies the array content not the original array. So the content of the copied array when changed doesn't affects the content of the original array.
 
 ```
+
 array1 = np.array([1,2,3,4,5])
 array2 = array1.copy()
 print(array2) # [1 2 3 4 5]
 array2[-1]= 500
 print(array2) # [1 2 3 4 500]
+
 # Array1 also changes
+
 print(array1) # [1 2 3 4 5]
+
 ```
 
 ### Mathematics on numpy arrays
@@ -337,24 +601,30 @@ print(array1) # [1 2 3 4 5]
 Suppose we have the following arrays
 
 ```
+
 a = np.array([2,3,4,5,9,90])
 b = np.array([1,2,3,4,5,6])
+
 ```
 
 ### Trigonometry
 
 ```
+
 ### Trigonometry
+
 print(np.sin(a))
 print(np.cos(a))
 print(np.tan(a))
-#  There are more
+
+# There are more
 
 ```
 
 ### Maths on two arrays
 
 ```
+
 ### Maths on two arrays
 
 print(a * b)
@@ -362,19 +632,25 @@ print(a ** b)
 print(a / b)
 print(a - b)
 print(a + b)
+
 # There are more
+
 ```
 
 ### Math on one array
 
 ```
+
 ### Math on one array
-print(a * 3)
-print(a ** 3)
+
+print(a \* 3)
+print(a \*\* 3)
 print(a / 3)
 print(a - 3)
 print(a + 3)
+
 # There are more
+
 ```
 
 ## Linear Algebra
@@ -382,13 +658,18 @@ print(a + 3)
 > In Linear Algebra, we are more focusing on multiplying arrays. So the rule is simple, THE NUMBER OF ONE COLUMNS OF MATRIX a SHOULD BE EQUAL TO THE NUMBER OF ROWS OF MATRIX B.
 
 ```
+
 a = np.ones([2, 2], dtype='int32')
 b = np.full([2,2], 3, dtype= 'int32')
 
-print(a * b)
+print(a \* b)
+
 # The correct way
+
 print(np.matmul(a, b))
+
 ## Getting the deteminant of a
+
 print(np.linalg.det(b))
 
 ```
@@ -400,18 +681,23 @@ print(np.linalg.det(b))
 Suppose we have the following array.
 
 ```
+
 arr = np.array([[2, 3, 4, 5,-1,9],[100, 19, 100, 78,10,-90]])
+
 ```
 
 ### Finding the maximum element of the array
 
 ```
+
 print(np.max(arr))
+
 ```
 
 ### Finding the minimum element of the array
 
 ```
+
 print(np.min(arr))
 
 ```
@@ -421,6 +707,7 @@ print(np.min(arr))
 ```
 
 print(np.sum(arr))
+
 ```
 
 ## Reshaping arrays
@@ -429,6 +716,7 @@ print(np.sum(arr))
 Suppose we have an array of numbers. And we want to create another array from this array with different dimension. We can use the reshape method to reshape the array. Example:
 
 ```
+
 arr = np.array([[2, 3, 4,5],[100, 19, 100, 7]])
 print(arr.shape) # (2,4)
 
@@ -449,17 +737,21 @@ Arrays can be stacked together to produce 1 array using two numpy methods
 ### horizontal Stack of arrays
 
 ```
+
 arr1 = np.array([2,3,4,5,8])
 arr2 = np.array([1,2,3,4,5])
 print(np.hstack([arr1, arr2]))
+
 ```
 
 ### vertical stack of arrays
 
 ```
+
 arr1 = np.array([2,3,4,5,8])
 arr2 = np.array([1,2,3,4,5])
 print(np.vstack([arr1, arr2]))
+
 ```
 
 ## Generating arrays from a file
@@ -467,6 +759,7 @@ print(np.vstack([arr1, arr2]))
 > Suppose we have a file that has list of numbers seperated by a comma and we want to read this file and into a numpy array. The file name is 'data.txt'. This can be done as follows
 
 ```
+
 data = np.genfromtxt('data.txt', delimiter=',')
 data # the data in the file as float type
 
@@ -477,7 +770,9 @@ data # the data in the file as int32
 
 data = np.genfromtxt('data.txt', delimiter=',', dtype='int32')
 data
-#  Or
+
+# Or
+
 data.astype('int8')
 
 ```
@@ -489,26 +784,33 @@ data.astype('int8')
 > Example: Checking if the element at that index is even or not.
 
 ```
+
 data = np.genfromtxt('data.txt', delimiter=',', dtype='int32')
 data % 2 == 0
+
 ```
 
 > Example: returning odd elements from the array
 
 ```
+
 data = np.genfromtxt('data.txt', delimiter=',', dtype='int32')
 data[data%2==1]
+
 ```
 
 > Example: Indexing multiple elements
 > Let's say we want to index and return elements that are at index, `1, 2, 6, 9` and the last element in the array `data` where elements are `ODD` we can do it as follows:
 
 ```
+
 data = np.genfromtxt('data.txt', delimiter=',', dtype='int32')
-data[data%2==1][[1, 2, 6, 9, -1]] # array([ 3,  5, 13, 19, 79])
+data[data%2==1][1, 2, 6, 9, -1]] # array([ 3, 5, 13, 19, 79])
 
 ```
 
 ## Where to find the documentation?
 
 - [Documentation](https://numpy.org/doc/)
+
+- [Documentation](https://numpy.org/doc/1.14/user/quickstart.html)
