@@ -7,8 +7,9 @@ The core concept of numpy arrays
 <img src="https://img.shields.io/static/v1?label=liked-most&message=jupyter-notebook&color=brightgreen"/>
 <img src="https://img.shields.io/static/v1?label=liked-most&message=numpy&color=blueviolet"/>
 </p>
+
 <p align="center">
-  <img src=""/>
+  <img src="https://github.com/CrispenGari/Numpy/blob/main/download.png"/>
 </p>
 
 ## Why numpy over python list
